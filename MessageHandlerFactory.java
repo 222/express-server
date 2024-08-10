@@ -1,4 +1,4 @@
-package com.championlang.netty.common;
+package com.express.netty.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
