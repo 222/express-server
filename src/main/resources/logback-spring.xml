@@ -8,7 +8,7 @@
     <springProperty scope="context" name="APP_NAME" source="spring.application.name" defaultValue="server"/>
     <springProperty scope="context" name="LOG_LEVEL" source="project.log.level" defaultValue="info"/>
     <!-- 日志文件 -->
-    <property name="LOG_FILE" value="/app/logs/${APP_NAME}.log"/>
+    <property name="LOG_FILE" value="logs/${APP_NAME}.log"/>
 
     <!-- 颜色渲染 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>

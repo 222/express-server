@@ -1,4 +1,4 @@
-package com.express.netty;
+package com.express.server.netty;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

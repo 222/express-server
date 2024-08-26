@@ -1,9 +1,9 @@
-package com.express.netty;
+package com.express.server.netty;
 
-import com.championlang.netty.codec.ObjDecoder;
-import com.championlang.netty.codec.ObjEncoder;
-import com.championlang.netty.common.MessageHandlerFactory;
-import com.championlang.netty.handler.ServerIdleStateTrigger;
+import com.express.server.netty.codec.ObjDecoder;
+import com.express.server.netty.codec.ObjEncoder;
+import com.express.server.netty.common.MessageHandlerFactory;
+import com.express.server.netty.handler.ServerIdleStateTrigger;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -25,16 +25,16 @@ public class NettyServerInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
     protected void initChannel(SocketChannel channel) {
-        ChannelPipeline ph = channel.pipeline();
+        ChannelPipeline pl = channel.pipeline();
         //对象传输处理[解码]
-        ph.addLast(new ObjDecoder());
+        pl.addLast(new ObjDecoder());
         // 在管道中添加我们自己的接收数据实现方法
         //入参说明: 读超时时间、写超时时间、所有类型的超时时间、时间格式
-        ph.addLast(new IdleStateHandler(60, 0, 0));
-        ph.addLast(new ServerIdleStateTrigger());
-//        channel.pipeline().addLast(new HeartbeatHandler());
-        ph.addLast(new NettyServerHandler(messageHandlerFactory));
+        pl.addLast(new IdleStateHandler(60, 0, 0));
+        pl.addLast(new ServerIdleStateTrigger());
+//        pl.addLast(new HeartbeatHandler());
+        pl.addLast(new NettyServerHandler(messageHandlerFactory));
         //对象传输处理[编码]
-        ph.addLast(new ObjEncoder());
+        pl.addLast(new ObjEncoder());
     }
 }
