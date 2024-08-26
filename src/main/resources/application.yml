@@ -21,13 +21,3 @@ netty:
 token:
   secret: "123456"
   expire: 24
-wx:
-  access-token: https://api.weixin.qq.com/sns/oauth2/access_token?appid=${wx.app-id}&secret=${wx.app-secret}&code=%s&grant_type=authorization_code
-  app-id: wxac76296eea62f17a
-  app-secret: c39e1b4a0b3ef2b84d4ac09522dd7dbc
-  authorize: https://open.weixin.qq.com/connect/qrconnect?appid=${wx.app-id}&redirect_uri=%s&response_type=code&scope=snsapi_login&state=%s#wechat_redirect
-  bind-callback: /manager/sop/user/callback/wx/bind
-  login-callback: /manager/sop/user/callback/wx/login
-  redirect-uri: https://ops.championlang.com/
-  unbind-callback: /manager/sop/user/callback/wx/unbind
-  userinfo: https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s
